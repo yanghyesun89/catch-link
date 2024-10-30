@@ -40,6 +40,7 @@
 const naverClientId = process.env.VUE_APP_NAVER_LOGIN_CLIENT_ID;
 const googleClientId = process.env.VUE_APP_GOOGLE_LOGIN_CLIENT_ID;
 const appleClientId = process.env.VUE_APP_APPLE_LOGIN_CLIENT_ID;
+const domain = "http://localhost:8080";
 export default {
   name: "LoginView",
   data() {
@@ -51,11 +52,11 @@ export default {
     //naver 로그인
     this.naverLogin = new window.naver_id_login(
       naverClientId,
-      "http://localhost:8080/naver"
+      `${domain}/naver`
     );
     var state = this.naverLogin.getUniqState();
     this.naverLogin.setButton("green", 3, 50); // 버튼설정
-    this.naverLogin.setDomain("http://localhost:8080");
+    this.naverLogin.setDomain(domain);
     this.naverLogin.setState(state);
     // this.naverLogin.setPopup();
     this.naverLogin.init_naver_id_login();
@@ -78,7 +79,7 @@ export default {
     AppleID.auth.init({
       clientId: appleClientId,
       scope: "email",
-      redirectURI: "http://localhost:8080/apple",
+      redirectURI: `${domain}/apple`,
       state: "[STATE]",
       nonce: "[NONCE]",
       usePopup: true,
@@ -90,7 +91,7 @@ export default {
         "https://accounts.google.com/o/oauth2/v2/auth?client_id=" +
         googleClientId +
         "&redirect_uri=" +
-        "http://localhost:8080/google" +
+        `${domain}/google` +
         "&response_type=code" +
         "&scope=email profile";
       window.location.href = url;
