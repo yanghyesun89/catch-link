@@ -15,5 +15,7 @@ module.exports = defineConfig({
         target: "https://oauth2.googleapis.com",
       },
     },
+    historyApiFallback: true,
+    allowedHosts: "all",
   },
 });
