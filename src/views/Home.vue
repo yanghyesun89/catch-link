@@ -587,7 +587,7 @@ export default {
       },
       searchValue: "",
       searchList: [],
-      isShowSnackBar: true,
+      isShowSnackBar: false,
       snackBarContent: "카테고리가 추가되었습니다.",
       langList: [
         {
