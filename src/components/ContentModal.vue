@@ -45,7 +45,7 @@ export default {
   height: 100%;
   position: relative;
 }
-@media screen and (max-width: 834px) {
+@media screen and (max-width: 768px) {
   .modal1 {
     width: 336px;
   }

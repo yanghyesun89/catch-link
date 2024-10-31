@@ -587,7 +587,7 @@ export default {
       },
       searchValue: "",
       searchList: [],
-      isShowSnackBar: false,
+      isShowSnackBar: true,
       snackBarContent: "카테고리가 추가되었습니다.",
       langList: [
         {
@@ -1244,12 +1244,21 @@ export default {
 .settingIcon {
   width: 24px;
 }
-@media screen and (max-width: 834px) {
+@media screen and (max-width: 768px) {
+  .linkHeader {
+    height: 72px;
+  }
   .logo {
     display: none;
   }
+  .settingIcon {
+    width: 20px;
+  }
   .searchBox {
     padding: 28px 0 28px 16px;
+  }
+  .bookmark {
+    margin-left: 12px;
   }
 }
 .tabList {
@@ -1281,30 +1290,30 @@ export default {
 .linkList {
   display: grid;
   padding: 24px;
-  grid-template-columns: 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 20px;
   max-width: 1024px;
   margin: 0 auto;
   justify-items: center;
 }
-@media screen and (min-width: 360px) {
-  .linkList {
-    grid-template-columns: 1fr;
-  }
-}
-@media screen and (min-width: 520px) {
-  .linkList {
-    grid-template-columns: 1fr 1fr;
-  }
-}
-@media screen and (min-width: 768px) {
+@media screen and (max-width: 1024px) {
   .linkList {
     grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
   }
 }
-@media screen and (min-width: 1024px) {
+@media screen and (max-width: 768px) {
   .linkList {
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    padding: 16px;
+  }
+}
+@media screen and (max-width: 360px) {
+  .linkList {
+    grid-template-columns: 1fr;
+    gap: 12px;
+    padding: 16px;
   }
 }
 .blank {
@@ -1321,6 +1330,7 @@ export default {
 .blank .blankTitle {
   color: var(--gray400);
   font-size: 20px;
+  font-weight: 500;
 }
 .blank .blankMiddle {
   color: var(--gray400);
@@ -1643,7 +1653,12 @@ export default {
   cursor: pointer;
   align-content: center;
 }
-
+@media screen and (max-width: 768px) {
+  .addBtn {
+    right: 24px;
+    bottom: 24px;
+  }
+}
 .plusIcon {
   width: 22px;
 }
@@ -1746,6 +1761,7 @@ export default {
   cursor: pointer;
 }
 .snackBar {
+  width: 328px;
   position: fixed;
   left: 50%;
   transform: translate(-50%, 0);

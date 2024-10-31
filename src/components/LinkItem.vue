@@ -19,6 +19,7 @@
         <label :for="`bookmark${linkItem.linkId}`"></label>
       </div>
     </div>
+    <div class="flex1"></div>
     <div class="linkContent">
       <div class="categoryName">{{ linkItem.categoryName }}</div>
       <div class="regDt">
@@ -93,6 +94,14 @@ export default {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+  display: flex;
+  flex-direction: column;
+}
+@media screen and (max-width: 768px) {
+  .linkItem {
+    width: 158px;
+    height: 240px;
+  }
 }
 .bookmark {
   width: 36px;
@@ -102,7 +111,6 @@ export default {
   cursor: pointer;
 }
 .linkContent {
-  margin-top: 90px;
   background-color: #ffffffd6;
   padding: 12px;
   border-radius: 8px;
@@ -128,6 +136,11 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+@media screen and (max-width: 768px) {
+  .linkContent .title {
+    font-size: 14px;
+  }
+}
 .linkContent .linkBottom {
   display: flex;
   margin-top: 30px;
@@ -141,6 +154,8 @@ export default {
 .linkContent .linkBottom .linkUrl {
   color: var(--gray300);
   font-size: 12px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 input[type="checkbox"] {
   display: none;
