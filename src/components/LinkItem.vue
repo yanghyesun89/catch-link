@@ -96,6 +96,7 @@ export default {
   background-size: cover;
   display: flex;
   flex-direction: column;
+  cursor: pointer;
 }
 @media screen and (max-width: 768px) {
   .linkItem {

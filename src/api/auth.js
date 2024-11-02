@@ -68,7 +68,7 @@ const getGoogleAccessToken = async (code, clientId, clientSecret) => {
     code: code,
     client_id: clientId,
     client_secret: clientSecret,
-    redirect_uri: "http://localhost:8080/google",
+    redirect_uri: "https://catchlink.meomimo.com/google",
     grant_type: "authorization_code",
   });
 };

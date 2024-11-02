@@ -36,14 +36,17 @@ axiosService.interceptors.response.use(
         {},
         { headers: headers }
       );
-      const data = result.data;
       const status = result.status;
 
       if (status === 200) {
+        const data = result.data;
         sessionStorage.setItem("accessToken", data.data.accessToken);
         sessionStorage.setItem("refreshToken", data.data.refreshToken);
         originalRequest.headers.Authorization = `Bearer ${data.data.accessToken}`;
         return axios(originalRequest);
+      } else if (result.status === 401) {
+        sessionStorage.clear();
+        window.location.href = "/";
       }
     } else if (response.status >= 500) {
       console.log("500 error");

@@ -1,13 +1,13 @@
 <template>
   <div class="loginContent">
-    <div class="loginTitleContent">
+    <div class="loginTitleContent"></div>
+    <div class="loginSocialContent"></div>
+    <div class="realContent">
       <div class="loginTitle">
         <p class="sub1">{{ $t("save_link") }}</p>
         <p class="sub2">{{ $t("catch_link") }}</p>
         <img src="../../public/images/login_logo.png" class="sub3" />
       </div>
-    </div>
-    <div class="loginSocialContent">
       <div class="loginSocial">
         <div>
           <div id="naver_id_login" class="inlineBlock"></div>
@@ -40,7 +40,7 @@
 const naverClientId = process.env.VUE_APP_NAVER_LOGIN_CLIENT_ID;
 const googleClientId = process.env.VUE_APP_GOOGLE_LOGIN_CLIENT_ID;
 const appleClientId = process.env.VUE_APP_APPLE_LOGIN_CLIENT_ID;
-const domain = "http://localhost:8080";
+const domain = "https://catchlink.meomimo.com";
 export default {
   name: "LoginView",
   data() {
@@ -113,16 +113,15 @@ export default {
   height: 100%;
 }
 .loginTitleContent {
-  position: relative;
   height: 40%;
   background-color: #f1480010;
 }
-.loginTitle {
-  position: absolute;
+.loginSocialContent {
+  height: 60%;
   text-align: center;
-  top: 73%;
-  left: 50%;
-  transform: translate(-50%, 0);
+}
+.loginTitle {
+  text-align: center;
 }
 .loginTitle .sub1 {
   color: var(--gray400);
@@ -132,17 +131,21 @@ export default {
   margin-top: 12px;
   color: var(--blue500);
   font-size: 24px;
+  font-weight: 400;
 }
 .loginTitle .sub3 {
   margin-top: 4px;
   width: 64px;
 }
-.loginSocialContent {
-  height: 60%;
-  text-align: center;
+.realContent {
+  width: 100%;
+  height: 67%;
+  position: absolute;
+  top: 33%;
 }
 .loginSocial {
-  padding-top: 13%;
+  padding-top: 20px;
+  text-align: center;
 }
 .inlineBlock {
   display: inline-block;
@@ -152,53 +155,38 @@ export default {
 }
 .googleLogin {
   width: 229px;
+  height: 49px;
   border: 1px solid var(--gray200);
   border-radius: 10px;
   cursor: pointer;
 }
 .appleLogin {
   width: 231px;
-  height: 47px;
+  height: 50px;
   cursor: pointer;
 }
-@media screen and (min-width: 360px) {
-  .loginTitle {
-    top: 73%;
-  }
-  .loginSocial {
-    padding-top: 12%;
+@media screen and (max-height: 1024px) {
+  .realContent {
+    top: 31%;
+    height: 69%;
   }
 }
-@media screen and (max-height: 668px) {
-  .loginTitle {
-    top: 66%;
-  }
-  .loginSocial {
-    padding-top: 12%;
+@media screen and (max-height: 1008px) {
+  .realContent {
+    top: 30%;
+    height: 70%;
   }
 }
-@media screen and (min-width: 520px) {
-  .loginTitle {
-    top: 75%;
-  }
-  .loginSocial {
-    padding-top: 10%;
+@media screen and (max-height: 800px) {
+  .realContent {
+    top: 27%;
+    height: 73%;
   }
 }
-@media screen and (min-width: 768px) {
-  .loginTitle {
-    top: 77%;
-  }
-  .loginSocial {
-    padding-top: 8%;
-  }
-}
-@media screen and (min-width: 1024px) {
-  .loginTitle {
-    top: 78%;
-  }
-  .loginSocial {
-    padding-top: 5%;
+@media screen and (max-height: 667px) {
+  .realContent {
+    top: 25%;
+    height: 75%;
   }
 }
 </style>

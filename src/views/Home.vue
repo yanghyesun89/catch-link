@@ -101,6 +101,7 @@
           v-for="(item, idx) in searchList"
           :key="idx"
           :linkItem="item"
+          @click.self="moveLink(item.linkUrl)"
           @onClickLinkItem="onClickLinkItem"
           @isBookmark="isBookmark"
         ></LinkItem>
@@ -558,7 +559,7 @@ export default {
       }, //수정용 카테고리 이름
       //링크 추가 req
       reqLinkAdd: {
-        categoryId: "",
+        categoryId: "C$0001",
         title: "",
         url: "",
         thumbnail: "",
@@ -1060,7 +1061,11 @@ export default {
       }
     },
     onClickLinkRegister() {
-      if (this.reqLinkAdd.title === "" || this.reqLinkAdd.url === "") {
+      if (
+        this.reqLinkAdd.title === "" ||
+        this.reqLinkAdd.url === "" ||
+        this.reqLinkAdd.categoryId === ""
+      ) {
         return;
       }
       if (this.isLinkEdit) {
