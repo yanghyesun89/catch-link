@@ -20,7 +20,6 @@ export default {
             const loginData = loginResult.data;
             const loginStatus = loginResult.status;
             if (loginStatus === 200) {
-              sessionStorage.setItem("loginType", "google");
               sessionStorage.setItem("googleAccessToken", data.access_token);
               sessionStorage.setItem("accessToken", loginData.data.accessToken);
               sessionStorage.setItem(

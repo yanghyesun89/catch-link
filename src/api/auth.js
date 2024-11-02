@@ -58,10 +58,10 @@ const postLogin = async (accessToken, socialType) => {
   );
 };
 
-const getLogout = async (accessToken, clientSecret, clientId) => {
-  const url = `/oauth2.0/token?grant_type=delete&client_id=${clientId}&client_secret=${clientSecret}&access_token=${accessToken}&service_provider=NAVER`;
-  return await axiosAuthService.get(url);
-};
+// const getLogout = async (accessToken, clientSecret, clientId) => {
+//   const url = `/oauth2.0/token?grant_type=delete&client_id=${clientId}&client_secret=${clientSecret}&access_token=${accessToken}&service_provider=NAVER`;
+//   return await axiosAuthService.get(url);
+// };
 
 const getGoogleAccessToken = async (code, clientId, clientSecret) => {
   return await axiosAuthService.post("/token", {
@@ -73,4 +73,4 @@ const getGoogleAccessToken = async (code, clientId, clientSecret) => {
   });
 };
 
-export { postLogin, getLogout, getGoogleAccessToken };
+export { postLogin, getGoogleAccessToken };

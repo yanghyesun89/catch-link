@@ -508,10 +508,6 @@ import {
   patchLinkEdit,
   postLinkParse,
 } from "@/api/index.js";
-import { getLogout } from "@/api/auth.js";
-
-const naverClientId = process.env.VUE_APP_NAVER_LOGIN_CLIENT_ID;
-const naverClientSecret = process.env.VUE_APP_NAVER_LOGIN_SECRET_KEY;
 
 export default {
   name: "HomeView",
@@ -1098,19 +1094,7 @@ export default {
       this.requestPatchCategoryOrder();
     },
     onClickLogout() {
-      const loginType = sessionStorage.getItem("loginType");
-      if (loginType === "naver") {
-        const accessToken = sessionStorage.getItem("naverAccessToken");
-        getLogout(accessToken, naverClientSecret, naverClientId).then(() => {
-          this.$router.push("/");
-        });
-      } else if (loginType === "google") {
-        let google = window.google;
-        google.accounts.id.disableAutoSelect();
-        this.$router.push("/");
-      } else {
-        console.log("apple login");
-      }
+      this.$router.push("/");
       sessionStorage.clear();
     },
     onChangeLinkInputbox() {

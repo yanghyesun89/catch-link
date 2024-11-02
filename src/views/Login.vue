@@ -81,7 +81,6 @@ export default {
           const status = result.status;
           if (status === 200) {
             const data = result.data;
-            sessionStorage.setItem("loginType", "apple");
             sessionStorage.setItem("appleIdToken", authId);
             sessionStorage.setItem("accessToken", data.data.accessToken);
             sessionStorage.setItem("refreshToken", data.data.refreshToken);
@@ -144,7 +143,7 @@ export default {
   margin-top: 12px;
   color: var(--blue500);
   font-size: 24px;
-  font-weight: 400;
+  font-weight: 500;
 }
 .loginTitle .sub3 {
   margin-top: 4px;

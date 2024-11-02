@@ -15,7 +15,6 @@ export default {
       const status = result.status;
       if (status === 200) {
         const data = result.data;
-        sessionStorage.setItem("loginType", "naver");
         sessionStorage.setItem("naverAccessToken", this.accessToken);
         sessionStorage.setItem("accessToken", data.data.accessToken);
         sessionStorage.setItem("refreshToken", data.data.refreshToken);
