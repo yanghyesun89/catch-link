@@ -80,7 +80,7 @@ export default {
       clientId: appleClientId,
       scope: "email",
       redirectURI: `${domain}/apple`,
-      state: "[STATE]",
+      state: "signin",
       nonce: "[NONCE]",
       usePopup: true,
     });
@@ -102,6 +102,7 @@ export default {
         const data = await AppleID.auth.signIn();
         console.log(data);
       } catch (error) {
+        console.log(error);
         alert(this.$i18n.t("apple_login_error"));
       }
     },

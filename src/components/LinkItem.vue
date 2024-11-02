@@ -8,11 +8,11 @@
   >
     <div style="display: flex; padding: 12px">
       <div style="flex: 1"></div>
-      <div class="bookmark">
+      <div class="bookmark" @click.stop>
         <input
           type="checkbox"
           :id="`bookmark${linkItem.linkId}`"
-          @change.stop="onChangeBookmark"
+          @change="onChangeBookmark"
           :checked="linkItem.linkIsMarked"
           v-model="isBookmark"
         />
