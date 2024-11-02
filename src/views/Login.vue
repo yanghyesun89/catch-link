@@ -64,18 +64,6 @@ export default {
     // this.naverLogin.setPopup();
     this.naverLogin.init_naver_id_login();
 
-    //구글 로그인
-    // let google = window.google;
-    // google.accounts.id.initialize({
-    //   client_id: "YOUR_GOOGLE_CLIENT_ID",
-    //   callback: handleCredentialResponse,
-    // });
-    // google.accounts.id.prompt();
-
-    // google.accounts.id.renderButton(document.getElementById("G_OAuth_btn"), {
-    //   theme: "outline",
-    //   size: "large",
-    // });
     let AppleID = window.AppleID;
     AppleID.auth.init({
       clientId: appleClientId,
@@ -83,7 +71,7 @@ export default {
       redirectURI: `${domain}/apple`,
       state: appleState,
       nonce: "nonce",
-      usePopup: true,
+      usePopup: false,
     });
     document.addEventListener("AppleIDSignInOnSuccess", (data) => {
       let state = data.detail.authorization.state;
@@ -91,6 +79,7 @@ export default {
         let authId = data.detail.authorization.id_token;
         postLogin(authId, "apple").then((result) => {
           const status = data.status;
+          console.log(status);
           if (status === 200) {
             const data = result.data;
             sessionStorage.setItem("loginType", "apple");
