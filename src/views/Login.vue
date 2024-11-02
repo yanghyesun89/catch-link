@@ -28,7 +28,6 @@
               data-border="true"
               data-type="sign in"
               class="appleLogin"
-              @click="onClickAppleLogin"
             ></div>
           </div>
         </div>
@@ -73,8 +72,6 @@ export default {
     //   theme: "outline",
     //   size: "large",
     // });
-
-    //애플 로그인
     let AppleID = window.AppleID;
     AppleID.auth.init({
       clientId: appleClientId,
@@ -96,16 +93,15 @@ export default {
         "&scope=email profile";
       window.location.href = url;
     },
-    async onClickAppleLogin() {
-      try {
-        let AppleID = window.AppleID;
-        const data = await AppleID.auth.signIn();
-        console.log(data);
-      } catch (error) {
-        console.log(error);
-        alert(this.$i18n.t("apple_login_error"));
-      }
-    },
+    // async onClickAppleLogin() {
+    //   try {
+    //     // const data = await AppleID.auth.signIn();
+    //     // console.log(data);
+    //   } catch (error) {
+    //     console.log(error);
+    //     alert(this.$i18n.t("apple_login_error"));
+    //   }
+    // },
   },
 };
 </script>
