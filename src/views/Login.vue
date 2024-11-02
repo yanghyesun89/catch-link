@@ -81,6 +81,9 @@ export default {
       nonce: "[NONCE]",
       usePopup: true,
     });
+    document.addEventListener("AppleIDSignInOnSuccess", (data) => {
+      console.log(data);
+    });
   },
   methods: {
     onClickGoogleLogin() {
