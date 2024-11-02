@@ -78,8 +78,7 @@ export default {
       if (state === appleState) {
         let authId = data.detail.authorization.id_token;
         postLogin(authId, "apple").then((result) => {
-          const status = data.status;
-          console.log(status);
+          const status = result.status;
           if (status === 200) {
             const data = result.data;
             sessionStorage.setItem("loginType", "apple");
