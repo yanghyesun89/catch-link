@@ -13,9 +13,9 @@ export default {
 
     getGoogleAccessToken(code, googleClientId, googleClientSecret).then(
       (result) => {
-        const data = result.data;
         const status = result.status;
         if (status === 200) {
+          const data = result.data;
           postLogin(data.access_token, "google").then((loginResult) => {
             const loginData = loginResult.data;
             const loginStatus = loginResult.status;
@@ -29,8 +29,12 @@ export default {
               );
               sessionStorage.setItem("email", loginData.data.email);
               this.$router.push("home");
+            } else {
+              alert(this.$i18n.t("error"));
             }
           });
+        } else {
+          alert(this.$i18n.t("error"));
         }
       }
     );

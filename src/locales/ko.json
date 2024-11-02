@@ -61,5 +61,6 @@
   "snackbar_delete_link": "링크가 삭제되었습니다.",
   "snackbar_update_link": "링크가 수정되었습니다.",
   "snackbar_copy_link": "링크 복사를 완료했습니다.",
-  "apple_login_error": "애플 로그인 처리 중 에러가 발생했습니다."
+  "apple_login_error": "애플 로그인 처리 중 에러가 발생했습니다.",
+  "error": "처리 과정 중 에러가 발생했습니다."
 }

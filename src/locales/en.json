@@ -61,5 +61,6 @@
   "snackbar_delete_link": "Link removed.",
   "snackbar_update_link": "Link corrected.",
   "snackbar_copy_link": "Copyed the link.",
-  "apple_login_error": "An error occurred while processing Apple login."
+  "apple_login_error": "An error occurred while processing Apple login.",
+  "error": "An error occurred during processing."
 }
