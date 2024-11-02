@@ -12,7 +12,7 @@
         <input
           type="checkbox"
           :id="`bookmark${linkItem.linkId}`"
-          @change="onChangeBookmark"
+          @change.stop="onChangeBookmark"
           :checked="linkItem.linkIsMarked"
           v-model="isBookmark"
         />
@@ -28,7 +28,10 @@
       <div class="title">{{ linkItem.linkTitle }}</div>
       <div class="linkBottom">
         <div class="linkUrl">{{ getUrlParse(linkItem.linkUrl) }}</div>
-        <img src="../../public/images/more_icon.png" @click="onClickMoreIcon" />
+        <img
+          src="../../public/images/more_icon.png"
+          @click.stop="onClickMoreIcon"
+        />
       </div>
     </div>
   </div>
@@ -73,13 +76,19 @@ export default {
       return returnUrl.host;
     },
     onChangeBookmark() {
-      console.log(this.linkItem.categoryId, this.linkItem.linkTimeStamp);
-      //prettier-ignore
-      this.$emit("isBookmark", this.linkItem.categoryId, this.linkItem.linkTimeStamp, this.isBookmark);
+      this.$emit(
+        "isBookmark",
+        this.linkItem.categoryId,
+        this.linkItem.linkTimeStamp,
+        this.isBookmark
+      );
     },
     onClickMoreIcon() {
-      //prettier-ignore
-      this.$emit("onClickLinkItem", this.linkItem.categoryId, this.linkItem.linkTimeStamp);
+      this.$emit(
+        "onClickLinkItem",
+        this.linkItem.categoryId,
+        this.linkItem.linkTimeStamp
+      );
     },
   },
 };

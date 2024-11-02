@@ -101,7 +101,7 @@
           v-for="(item, idx) in searchList"
           :key="idx"
           :linkItem="item"
-          @click.self="moveLink(item.linkUrl)"
+          @click="moveLink(item.linkUrl)"
           @onClickLinkItem="onClickLinkItem"
           @isBookmark="isBookmark"
         ></LinkItem>
